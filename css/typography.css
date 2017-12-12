@@ -1,0 +1,7 @@
+@font-face {
+    font-family: 'amazon_emberregular';
+    src: url('../fonts/amazon-ember.woff2') format('woff2'),
+    url('../fonts/amazon-ember.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}

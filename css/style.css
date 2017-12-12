@@ -1,0 +1,107 @@
+@import url('grid.css');
+@import url('typography.css');
+
+/* reset */
+html { font-family: sans-serif; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%;}
+
+body { margin: 0; font-family: 'amazon_emberregular';}
+
+img { display: block; border: 0; width: 100%; height: auto;}
+
+/* accessibility */
+.screen-reader-text { clip: rect(1px, 1px, 1px, 1px); position: absolute !important; height: 1px; width: 1px; overflow: hidden;}
+
+.screen-reader-text:hover,.screen-reader-text:active,.screen-reader-text:focus {
+	background-color: #f1f1f1;
+	border-radius: 3px;
+	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+	clip: auto !important;
+	color: #21759b;
+	display: block;
+	font-size: 14px;
+	font-weight: bold;
+	height: auto;
+	left: 5px;
+	line-height: normal;
+	padding: 15px 23px 14px;
+	text-decoration: none;
+	top: 5px;
+	width: auto;
+	z-index: 100000; 
+}
+
+/* typography */
+body,
+button,
+input,
+select,
+textarea { color: #404040; font-family: 'amazon_emberregular', Heletica, sans-serif; font-size: 16px; line-height: 1.5;}
+
+h1,h2,h3 { margin: 0; padding: -1em 0;}
+
+p { margin: 0; padding: 0;}
+
+/* core styles */
+.site { background: #ededed; min-height: 100vh;}
+
+.masthead,.main-content,.sidebar,.twin,.footer { padding: 1em 2em;}
+
+.main-content { background: white;}
+
+.masthead { background: #0a202b; color: white;}
+
+.sidebar { background: #DDDDDD;}
+
+.twin { background: #2185C5;}
+
+.twin:last-of-type { background: #7ECEFD;}
+
+.colophon { padding: 2em; background: #195e40; color: white;}
+
+.colophon a { color: white;}
+
+.colophon a:hover,.colophon a:focus { border-bottom: 1px solid white;}
+
+/* default to 50em wide if the grid fails */
+@supports not (display: grid) {
+	.site {
+		max-width: 50em;
+		margin: 0 auto;
+	}
+}
+
+/* grid layout */
+@media screen and (min-width: 600px) {
+	@supports (display: grid) {
+
+		.site {
+			display: grid;
+			grid-template-columns: 1fr repeat(6, minmax(auto, 10em)) 1fr;
+			grid-template-rows: minmax(1em, auto) 1fr auto minmax(1em, auto);
+		}
+
+		.masthead,
+		.colophon {
+			grid-column: span 8;
+		}
+
+		.main-content {
+			grid-column: 2/6;
+			min-width: 100%;
+		}
+
+		.sidebar {
+			grid-column: 6/8;
+		}
+
+		.twin {
+			grid-column: 2/5;
+			grid-row: 3/4;
+		}
+
+		.twin:last-of-type {
+			grid-column: 5/8;
+		}
+
+	}
+}
